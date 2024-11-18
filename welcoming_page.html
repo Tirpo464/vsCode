@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <link rel="stylesheet" href="login.css"> <!-- Optional: Reuse styles from login.css -->
+</head>
+<body>
+  <div class="welcome-container">
+    <h1>Welcome, <span id="usernameDisplay">User</span>!</h1>
+    <p>We're glad to have you back. You can explore more features or log out below.</p>
+    <button id="logoutButton" class="btn">Log Out</button>
+  </div>
+
+  <script>
+    // Display the logged-in user's name dynamically
+    const username = localStorage.getItem("username"); // Retrieve from localStorage
+    if (username) {
+      document.getElementById("usernameDisplay").textContent = username;
+    }
+
+    // Log out functionality
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      localStorage.removeItem("username"); // Clear the stored username
+      window.location.href = "login.html"; // Redirect to the login page
+    });
+  </script>
+</body>
+</html>
